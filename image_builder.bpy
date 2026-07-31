@@ -1,0 +1,196 @@
+import os
+import urllib.request
+import zipfile
+
+def download_portable_blender():
+    print("Downloading Blender Portable package...")
+    
+    # Official direct link to Blender Portable ZIP
+    blender_url = "https://download.blender.org/release/Blender4.2/blender-4.2.0-windows-x64.zip"
+    zip_path = "blender_portable.zip"
+    
+    # Add a User-Agent header to prevent HTTP 403 Forbidden errors
+    req = urllib.request.Request(
+        blender_url, 
+        headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+    )
+    
+    with urllib.request.urlopen(req) as response, open(zip_path, 'wb') as out_file:
+        out_file.write(response.read())
+        
+    print("Download complete. Extracting files...")
+    
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall("C:\\BlenderPortable")
+        
+    if os.path.exists(zip_path):
+        os.remove(zip_path)
+        
+    print("Blender Portable ready! Executable located at: C:\\BlenderPortable\\blender-4.2.0-windows-x64\\blender.exe")
+
+if __name__ == "__main__":
+    download_portable_blender()
+
+import os
+import json
+import glob
+import requests
+import random
+import bpy
+import os
+import urllib.request
+import subprocess
+
+# ==========================================
+# 🎛️ BLENDER 3D AUTOMATION PIPELINE CONFIGURATION
+# ==========================================
+CAR_SCALE = 1.0  
+# ==========================================
+
+def setup_blender_scene(bg_image_path, lighting_data):
+    # Clear existing mesh objects to reset the scene
+    bpy.ops.object.select_all(action='SELECT')
+    bpy.ops.object.delete(use_global=False)
+    
+    # 1. Setup Camera and Lighting from JSON data
+    bpy.ops.object.camera_add(location=(0, -10, 2))
+    camera = bpy.context.object
+    camera.rotation_euler = (1.35, 0, 0)
+    bpy.context.scene.camera = camera
+    
+    # Add Sun Lamp using Groq json lighting directions
+    light_dir = lighting_data.get("light_direction_xyz", [0.5, 1.0, 0.8])
+    bpy.ops.object.light_add(type='SUN', location=(light_dir[0]*5, light_dir[1]*5, light_dir[2]*5))
+    sun = bpy.context.object
+    sun.data.energy = lighting_data.get("light_intensity", 5.0) * 150.0
+    
+    # 2. Create Background Image Plane (Environment Map)
+    bpy.ops.mesh.primitive_plane_add(size=20, location=(0, 10, 5))
+    bg_plane = bpy.context.object
+    bg_plane.rotation_euler = (1.5708, 0, 0)
+    
+    bg_mat = bpy.data.materials.new(name="BackgroundMaterial")
+    bg_mat.use_nodes = True
+    nodes = bg_mat.node_tree.nodes
+    links = bg_mat.node_tree.links
+    nodes.clear()
+    
+    tex_node = nodes.ShaderNodeTexImage(name="BGTexture")
+    tex_node.image = bpy.data.images.load(bg_image_path)
+    emit_node = nodes.ShaderNodeEmission(name="BGEmissions")
+    out_node = nodes.ShaderNodeOutputMaterial(name="MaterialOutput")
+    
+    links.new(tex_node.outputs["Color"], emit_node.inputs["Color"])
+    links.new(emit_node.outputs["Emission"], out_node.inputs["Surface"])
+    bg_plane.data.materials.append(bg_mat)
+
+    # 3. Create Shadow Catcher Road Plane for Car Integration
+    bpy.ops.mesh.primitive_plane_add(size=10, location=(0, 0, 0))
+    road_plane = bpy.context.object
+    road_plane.is_shadow_catcher = True  # Captures real rays and shadows cleanly
+    
+    return camera
+
+def run_blender_pipeline():
+    print("Starting automated Blender 3D PBR Compositing Pipeline...")
+    
+    scenes_folder = "outputs/scenes/"
+    env_images_folder = "environments/images/"
+    
+    # Check for 3D Car model asset (Supports .obj or .fbx formats)
+    car_model_file = os.path.join(env_images_folder, "car.obj")
+    if not os.path.exists(car_model_file):
+        car_model_file = os.path.join(env_images_folder, "car.fbx")
+        
+    if not os.path.exists(car_model_file):
+        print("Error: Could not find 'car.obj' or 'car.fbx' inside environments/images/ folder!")
+        return
+
+    json_files = glob.glob(os.path.join(scenes_folder, "*.json"))
+    if not json_files:
+        print(f"Error: No JSON files found in {scenes_folder}!")
+        return
+        
+    os.makedirs("blender_renders", exist_ok=True)
+
+    environment_presets = [
+        {"env_type": "lush green forest highway", "location": "tall pine trees and natural sunlight"},
+        {"env_type": "futuristic industrial dock", "location": "metal structures, container yards, and neon accent lights"},
+        {"env_type": "mountain pass winding road", "location": "dramatic cliffs, rocky terrain, and open scenic sky"},
+        {"env_type": "coastal beachside highway", "location": "ocean view, sandy shores, and bright sunny horizon"},
+        {"env_type": "modern downtown city street", "location": "skyscrapers, glass buildings, and urban crosswalks"}
+    ]
+
+    for json_path in json_files:
+        base_name = os.path.basename(json_path).replace(".json", "")
+        
+        with open(json_path, "r") as file:
+            scene_data = json.load(file)
+            
+        env_data = scene_data.get("environment_data", {})
+        time_of_day = env_data.get("time_of_day", "daytime")
+        
+        for i, preset in enumerate(environment_presets, start=1):
+            env_type = preset["env_type"]
+            location = preset["location"]
+            
+            prompt = (
+                f"Ground-level eye-level medium shot of an empty asphalt road lane in a {env_type}, "
+                f"{location} during {time_of_day}, centered single lane perspective, no other vehicles, photorealistic, 8k"
+            )
+            
+            random_seed = random.randint(1, 999999)
+            url_friendly_prompt = prompt.replace(" ", "%20")
+            api_url = f"https://image.pollinations.ai/prompt/{url_friendly_prompt}?width=1920&height=1080&nologo=true&seed={random_seed}"
+            
+            response = requests.get(api_url)
+            temp_bg_path = f"temp_blender_bg_{base_name}_var{i}.jpg"
+            
+            if response.status_code == 200:
+                with open(temp_bg_path, "wb") as f:
+                    f.write(response.content)
+            else:
+                continue
+                
+            # Setup Blender Workspace Lighting & Environment
+                setup_blender_scene(temp_bg_path, env_data)
+            
+            # Import 3D Car Model (.obj or .fbx)
+            if car_model_file.endswith(".obj"):
+                bpy.ops.wm.obj_import(filepath=car_model_file)
+            elif car_model_file.endswith(".fbx"):
+                bpy.ops.import_scene.fbx(filepath=car_model_file)
+                
+            # Apply Mesh Physical Material properties based on JSON reflection values
+            refl_intensity = env_data.get("reflection_intensity", 0.5)
+            refl_roughness = env_data.get("reflection_roughness", 0.5)
+            
+            for obj in bpy.context.selected_objects:
+                if obj.type == 'MESH':
+                    obj.scale = (CAR_SCALE, CAR_SCALE, CAR_SCALE)
+                    for mat in obj.data.materials:
+                        if mat and mat.use_nodes:
+                            pbr_node = mat.node_tree.nodes.get("Principled BSDF")
+                            if pbr_node:
+                                pbr_node.inputs["Roughness"].default_value = refl_roughness
+                                pbr_node.inputs["Metallic"].default_value = refl_intensity
+            
+            # Configure Cycles Render Engine for Photorealism
+            bpy.context.scene.render.engine = 'CYCLES'
+            bpy.context.scene.cycles.samples = 64
+            bpy.context.scene.render.resolution_x = 1920
+            bpy.context.scene.render.resolution_y = 1080
+            
+            output_file_path = os.path.abspath(f"blender_renders/BLENDER_RENDER_{base_name}_env{i}.jpg")
+            bpy.context.scene.render.filepath = output_file_path
+            
+            print(f"Rendering 3D Raytraced Composite: {output_file_path}")
+            bpy.ops.render.render(write_still=True)
+            
+            if os.path.exists(temp_bg_path):
+                os.remove(temp_bg_path)
+
+    print("\nALL 3D BLENDER SCENES RENDERED SUCCESSFULLY!")
+
+if __name__ == "__main__":
+    run_blender_pipeline()

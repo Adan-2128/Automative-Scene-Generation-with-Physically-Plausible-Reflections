@@ -1,0 +1,140 @@
+2026-07-30 21:30:33,535 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 21:30:51,774 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 21:37:21,389 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 21:37:36,907 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 21:39:13,444 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 21:39:13,910 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-30 21:39:21,602 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 21:39:22,182 | ERROR   | pipeline | Failed processing C:\Users\DELL\ps2\environments\images\car.jpg: 
+2026-07-30 21:42:52,991 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 21:42:53,986 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-30 21:42:55,069 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-30 21:42:55,074 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-30 21:42:55,934 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-30 21:42:57,103 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-30 21:42:57,161 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-30 21:43:12,171 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 21:43:13,593 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-30 21:43:14,745 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-30 21:43:15,616 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-30 21:43:17,498 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-30 22:15:23,311 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 22:15:25,159 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-30 22:15:26,347 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-30 22:15:26,354 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-30 22:15:27,300 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-30 22:15:28,572 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-30 22:15:28,678 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-30 22:15:45,541 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 22:15:46,406 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-30 22:15:47,510 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-30 22:15:48,707 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-30 22:15:48,750 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-30 23:41:14,008 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 23:41:14,565 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-30 23:41:15,086 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-30 23:41:15,089 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-30 23:41:15,409 | INFO    | pipeline | Requesting lighting profile from Groq for pexels-mikebirdy-810357.jpg
+2026-07-30 23:41:16,417 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-30 23:41:16,455 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\pexels-mikebirdy-810357_scene.json
+2026-07-30 23:41:24,017 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-30 23:41:24,551 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-30 23:41:24,925 | INFO    | pipeline | Requesting lighting profile from Groq for pexels-mikebirdy-810357.jpg
+2026-07-30 23:41:26,042 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-30 23:41:26,062 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\pexels-mikebirdy-810357_scene.json
+2026-07-31 12:19:18,074 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 12:19:18,791 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-31 12:19:19,317 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-31 12:19:19,320 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 12:19:19,660 | INFO    | pipeline | Requesting lighting profile from Groq for pexels-mikebirdy-810357.jpg
+2026-07-31 12:19:20,669 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 12:19:20,696 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\pexels-mikebirdy-810357_scene.json
+2026-07-31 12:19:28,030 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 12:19:28,543 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 12:19:28,935 | INFO    | pipeline | Requesting lighting profile from Groq for pexels-mikebirdy-810357.jpg
+2026-07-31 12:19:30,017 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 12:19:30,046 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\pexels-mikebirdy-810357_scene.json
+2026-07-31 12:38:03,944 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 12:38:04,765 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-31 12:38:05,200 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-31 12:38:05,204 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 12:38:05,399 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 12:38:06,335 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 12:38:06,461 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 12:38:15,823 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 12:38:16,516 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 12:38:16,779 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 12:38:17,461 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 12:38:17,494 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 14:46:36,120 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 14:46:36,899 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-31 14:46:40,269 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-31 14:46:40,272 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 14:46:40,468 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 14:46:41,428 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 14:46:41,477 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 14:46:54,263 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 14:46:55,064 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 14:46:55,573 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 14:46:56,684 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 14:46:56,726 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 14:52:00,558 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 14:52:01,447 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-31 14:52:02,794 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-31 14:52:02,797 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 14:52:02,991 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 14:52:03,999 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 14:52:04,044 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 14:52:15,198 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 14:52:15,923 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 14:52:16,158 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 14:52:17,200 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 14:52:17,232 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 14:58:13,556 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 14:58:14,376 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-31 14:58:14,770 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-31 14:58:14,772 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 14:58:14,915 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 14:58:15,906 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 14:58:15,973 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 14:58:24,794 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 14:58:25,361 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 14:58:25,660 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 14:58:26,552 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 14:58:26,572 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 15:01:01,631 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 15:01:02,278 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-31 15:01:02,677 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-31 15:01:02,680 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 15:01:02,838 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 15:01:03,756 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 15:01:03,813 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 15:01:14,222 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 15:01:14,939 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 15:01:15,186 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 15:01:16,090 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 15:01:16,117 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 15:41:01,264 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 15:41:02,110 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-31 15:41:02,570 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-31 15:41:02,573 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 15:41:02,725 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 15:41:03,993 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 15:41:04,058 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 15:41:17,810 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 15:41:18,596 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 15:41:19,029 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 15:41:20,803 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 15:41:20,853 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 15:49:37,337 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 15:49:38,519 | INFO    | pipeline | Extracting ResNet features for PCA fitting on 1 images
+2026-07-31 15:49:39,852 | INFO    | models.pca_reducer | PCA fitted: 2048 -> 1 dims, nan% variance explained
+2026-07-31 15:49:39,858 | INFO    | models.pca_reducer | Saved PCA state to C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 15:49:40,773 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 15:49:42,148 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 15:49:42,206 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
+2026-07-31 15:50:00,371 | INFO    | models.feature_extractor | Loaded resnet50 (weights=IMAGENET1K_V2) on cpu
+2026-07-31 15:50:01,069 | INFO    | models.pca_reducer | Loaded PCA state from C:\Users\DELL\ps2\models\artifacts\pca_state.joblib
+2026-07-31 15:50:01,846 | INFO    | pipeline | Requesting lighting profile from Groq for car.jpg
+2026-07-31 15:50:03,072 | INFO    | httpx | HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-31 15:50:03,111 | INFO    | pipeline | Wrote scene descriptor -> C:\Users\DELL\ps2\outputs\scenes\car_scene.json
